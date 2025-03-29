@@ -70,4 +70,4 @@ Program ini dilengkapi dengan slider untuk mengukur **Kehadiran Mahasiswa** dan 
 
 ## Dokumentasi
 
-<video controls src="Screenrecord/Recording 2025-03-30 015025.mp4" title="Title"></video>
+https://github.com/user-attachments/assets/d84cc076-0c2e-4947-98f9-1113fd3bfe5f
