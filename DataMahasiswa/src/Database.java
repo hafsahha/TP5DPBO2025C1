@@ -1,45 +1,41 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Database {
-    // Atribut untuk koneksi database
     private Connection connection;
+    private Statement statement;
 
     // constructor
     public Database() {
         try {
-            // Membuat koneksi ke database
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/db_mahasiswa", // URL database
-                    "root", // username
-                    "" // password, jika ada
-            );
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_mahasiswa", "root", "");
+            statement = connection.createStatement();
         } catch (SQLException e) {
-            throw new RuntimeException("Koneksi gagal: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
-    // Digunakan untuk SELECT (ambil data dari database)
+    // digunakan untuk SELECT
     public ResultSet selectQuery(String sql) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            return preparedStatement.executeQuery();
+            statement.executeQuery(sql);
+            return statement.getResultSet();
         } catch (SQLException e) {
-            throw new RuntimeException("Error SELECT: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 
-    // Digunakan untuk INSERT, UPDATE, dan DELETE
+    // digunakan untuk INSERT, UPDATE, dan DELETE
     public int insertUpdateDeleteQuery(String sql) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            return preparedStatement.executeUpdate();
+            return statement.executeUpdate(sql);
         } catch (SQLException e) {
-            throw new RuntimeException("Error INSERT/UPDATE/DELETE: " + e.getMessage());
+            throw new RuntimeException(e);
         }
+    }
+
+    // getter
+    public Statement getStatement() {
+        return statement;
     }
 
     // Method untuk memeriksa apakah NIM sudah ada di database
