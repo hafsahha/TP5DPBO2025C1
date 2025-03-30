@@ -22,7 +22,7 @@ Program ini dilengkapi dengan slider untuk mengukur **Kehadiran Mahasiswa** dan 
 
 **Main Program (Menu)**:
 - Saat program dimulai, jendela aplikasi akan muncul dengan form kosong dan tabel mahasiswa.
-- **Tabel Mahasiswa**: Data mahasiswa di-load dari database menggunakan **db_mahasiswa.sql*.
+- **Tabel Mahasiswa**: Data mahasiswa di-load dari database menggunakan **db_mahasiswa.sql**.
 - **Add/Update**:
   - Pengguna dapat memasukkan data mahasiswa baru atau memperbarui data mahasiswa yang sudah ada.
   - Jika tombol **Add** ditekan, data akan dimasukkan ke dalam database dan tabel diperbarui.
